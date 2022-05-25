@@ -1,0 +1,553 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Security Group with AKAMAI CIDR ranges",
+    "Parameters": {
+        "VPCName": {
+        "Type": "String",
+        "Description": "Enter the name of the VPC"
+        }
+    },
+    "Resources": {
+    "AkamaiSecurityGroup" : {
+    "Type" : "AWS::EC2::SecurityGroup",
+    "Properties" : {
+        "GroupDescription" : "To allow IP CIDRs from AKAMAI",
+        "VpcId" : {"Ref" : "VPCName"},
+        "Tags": [ 
+        {
+            "Key": "Name",
+            "Value": "Security Group - AKAMAI CIDRs"
+        }
+    ]
+    }
+    },
+    "OutboundRule1": {
+        "Type" : "AWS::EC2::SecurityGroupEgress",
+        "Properties" : {
+        "CidrIp" : "0.0.0.0/0",
+        "IpProtocol" : "-1",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule1": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "104.103.71.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule2": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "104.107.216.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule3": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "104.107.217.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule4": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "184.51.151.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule5": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "184.51.199.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule6": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.16.115.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule7": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.16.153.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule8": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.16.181.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule9": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.16.218.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule10": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.17.112.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule11": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.17.115.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule12": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.18.240.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule13": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.20.132.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule14": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.22.31.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule15": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.14.94.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule16": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.200.86.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule17": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.200.87.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule18": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.205.127.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule19": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.216.10.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule20": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.60.69.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule21": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.62.100.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule22": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.62.98.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule23": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.79.240.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule24": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "72.246.150.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule25": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "72.246.216.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule26": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "80.239.255.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule27": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "88.221.222.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule28": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "88.221.51.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule29": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "92.122.190.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule30": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "92.122.206.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule31": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "92.123.155.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule32": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "92.123.251.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule33": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "92.123.66.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule34": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "95.100.169.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule35": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "95.100.97.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule36": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "2.21.33.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule37": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.203.249.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule38": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.216.154.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule39": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.216.155.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule40": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.217.99.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule41": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "88.221.24.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule42": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "88.221.25.0/24",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule43": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "67.220.142.19/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule44": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "67.220.142.20/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule45": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "67.220.142.21/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule46": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "67.220.142.22/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule47": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "66.198.8.141/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule48": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "66.198.8.142/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule49": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "66.198.8.143/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule50": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "66.198.8.144/32",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    },
+    "InboundRule51": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.48.168.0/22",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+        }
+    },
+    "InboundRule52": {
+        "Type" : "AWS::EC2::SecurityGroupIngress",
+        "Properties" : {
+        "CidrIp" : "23.50.48.0/20",
+        "FromPort" : "443",
+        "IpProtocol" : "TCP",
+        "ToPort" : "443",
+        "GroupId" : {"Fn::GetAtt": ["AkamaiSecurityGroup", "GroupId"]}
+    }
+    }
+}
+}
