@@ -13,7 +13,7 @@ steps:
     awsCredentials: 'aws_service_connection'
     regionName: 'eu-west-1'
     bucketName: 'nvg-devopstest'
-    sourceFolder: 'stack_template/'
+    sourceFolder: '$(Build.SourcesDirectory)'
     globExpressions: '**'
     targetFolder: 'stack_template/uploads_from_azure'
     filesAcl: 'public-read-write'
