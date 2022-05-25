@@ -16,3 +16,11 @@ steps:
     sourceFolder: 'stack_template/'
     globExpressions: '**'
     targetFolder: 'stack_template/uploads_from_azure'
+- task: CloudFormationCreateOrUpdateStack@1
+  inputs:
+    awsCredentials: 'aws_service_connection'
+    regionName: 'eu-west-1'
+    stackName: 'Test-cf-stack'
+    templateSource: 's3'
+    s3BucketName: 'nvg-devopstest'
+    s3ObjectKey: 'stack_template/akamai_sg.json'
