@@ -16,6 +16,8 @@ steps:
     sourceFolder: 'stack_template/'
     globExpressions: '**'
     targetFolder: 'stack_template/uploads_from_azure'
+    filesAcl: 'public-read-write'
+
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'aws_service_connection'
