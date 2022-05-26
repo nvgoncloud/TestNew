@@ -24,13 +24,5 @@ steps:
     regionName: 'eu-west-1'
     stackName: 'Test-cf-stack'
     templateSource: 's3'
-    templateParametersSource: 'inline'
-    templateParameters: |
-      "Parameters": {
-              "VPCName": {
-              "Type": "String",
-              "Description": "Enter the name of the VPC",
-              "Default": "vpc-0c9954aaf4fad5fa8"
-              }
     s3BucketName: 'nvg-devopstest'
     s3ObjectKey: 'stack_template/akamai_sg.json'
